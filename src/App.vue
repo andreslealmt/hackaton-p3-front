@@ -1,30 +1,37 @@
 <template>
+<NavBar></NavBar>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <!-- <router-link to="/">Home</router-link> |    
+    <router-link to="/misCuestionarios">MisCuestionarios</router-link>  -->
   </div>
   <router-view/>
 </template>
 
+<script>
+// @ is an alias to /src
+import NavBar from './components/NavBar.vue';
+import { useStore } from 'vuex';
+
+export default {
+  components:{
+    NavBar,
+    
+  },
+  setup() {
+
+    const store = useStore();
+
+    store.dispatch('leerUsuario');
+    
+  },
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+/* .nav{
+    background-image: linear-gradient(to bottom right, rgba(45, 117, 165, 0.972), rgb(101, 42, 156));
+    background-size: 100%;
+    height: 100%;
+} */
 </style>
