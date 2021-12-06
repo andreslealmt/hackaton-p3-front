@@ -10,7 +10,7 @@ const getCategorias = () => {
 
         try {
             
-            const res = await fetch('http://localhost/api/categoria/all');
+            const res = await fetch('http://168.138.233.89/api/categoria/all');
             categoriasLoaded.value = await res.json();
 
         } catch (error) {
